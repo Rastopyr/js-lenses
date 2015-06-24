@@ -1,0 +1,22 @@
+{
+  "name": "js-lenses",
+  "version": "1.0.0",
+  "description": "Composable, immutable getters and setters.",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify index.js --outfile bundle.js -t [ babelify --stage 0 ]",
+    "prepublish": "browserify index.js --outfile bundle.js -t [ babelify --stage 0 ]"
+  },
+  "keywords": [
+    "lenses",
+    "functional"
+  ],
+  "author": "Roman Liutikov",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "daggy": "0.0.1",
+    "watchify": "^3.2.3"
+  }
+}
