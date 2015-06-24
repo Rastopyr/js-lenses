@@ -1,6 +1,6 @@
 {
   "name": "js-lenses",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Composable, immutable getters and setters for plain JavaScript data structures.",
   "main": "bundle.js",
   "scripts": {
