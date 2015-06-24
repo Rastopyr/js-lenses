@@ -28,3 +28,7 @@ var firstNameChildLense = Lense.ofPath(['children', 'boys', 0, 'name']).from(per
 firstNameChildLense.get(); // -> 'John'
 firstNameChildLense.set('Jim'); // -> { name: 'John', children: [{ name: 'Jim'}, { name: 'Dirk' }] }
 ```
+
+## Why?
+
+For learning purpose 🎓
