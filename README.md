@@ -1,5 +1,7 @@
 # js-lenses
 
+Composable, immutable getters and setters for plain JavaScript data structures.
+
 ## Installation
 
 ```
@@ -9,20 +11,20 @@ npm i js-lenses
 ## Usage
 
 ```javascript
-var person = { name: 'John', children: [{ name: 'Elle'}, { name: 'Dirk' }] };
+var person = { name: 'John', children: { boys: [{ name: 'John'}, { name: 'Dirk' }] }};
 
 var nameLense = Lense.of('name'); // create lense
 var dataNameLense = nameLense.from(person); // apply lense with data
 
 dataNameLense.get(); // get value -> 'John'
-dataNameLense.set('Jim') // set value -> { name: 'Jim' }
+dataNameLense.set('Jim'); // set value -> { name: 'Jim' }
 
-var childLense = Lense.compose(nameLense, Lense.of('children')).from(data); // compose lenses
+var childrenLense = Lense.compose(Lense.of('children'), Lense.of('boys')).from(person); // compose lenses
 
-children.set(children.get().map((child) => child.age = 11));
+childrenLense.set(childrenLense.get().map((child) => (child.age = 11, child)));
 
-var firstNameChildLense = Lense.ofPath(['children', 0, 'name']).from(data); // or get from path
+var firstNameChildLense = Lense.ofPath(['children', 'boys', 0, 'name']).from(person); // or get from path
 
-firstNameChildLense.get(); // -> 'Elle'
-firstNameChildLense.set(Nora); // -> { name: 'John', children: [{ name: 'Nora'}, { name: 'Dirk' }] }
+firstNameChildLense.get(); // -> 'John'
+firstNameChildLense.set('Jim'); // -> { name: 'John', children: [{ name: 'Jim'}, { name: 'Dirk' }] }
 ```
