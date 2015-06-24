@@ -1,7 +1,7 @@
 {
   "name": "js-lenses",
   "version": "1.0.0",
-  "description": "Composable, immutable getters and setters.",
+  "description": "Composable, immutable getters and setters for plain JavaScript data structures.",
   "main": "index.js",
   "scripts": {
     "start": "watchify index.js --outfile bundle.js -t [ babelify --stage 0 ]",
